@@ -1,0 +1,38 @@
+Durante as aulas, nós trabalhamos diretamente com várias funções built-in que são aquelas pré-definidas e disponíveis por padrão no Python. Elas funcionam como ferramentas úteis para realizar tarefas comuns, como conversões de tipo, operações matemáticas, manipulação de strings e muito mais, sem a necessidade de escrever código adicional.
+
+Algumas funções built-in que já conhecemos são: print(), input(), len(), int(), str(), float(), range(), chr(), etc. Mas existem outras além dessas que também são muito úteis, como: sum(), help() e dir(). Vamos conhecê-las?
+
+sum()
+A função sum() permite somar os elementos de uma sequência ou estrutura de dados. No exemplo a seguir, vamos somar os preços de produtos:
+
+precos = [100.0, 400.0, 200.0]
+soma = sum(precos)
+soma
+Copiar código
+Saída: 700.0
+
+help()
+A função help() é usada para acessar a documentação de funções, métodos e outros elementos do Python. Ela exibe informações em inglês sobre a funcionalidade, sintaxe e uso de um objeto específico. Para usar essa função, basta passar o elemento desejado entre parênteses. Por exemplo, vamos verificar a documentação da função print:
+
+help(print)
+Copiar código
+# Saída:
+Help on built-in function print in module builtins:
+
+print(...)
+    print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
+    
+    Prints the values to a stream, or to sys.stdout by default.
+    Optional keyword arguments:
+    file:  a file-like object (stream); defaults to the current sys.stdout.
+    sep:   string inserted between values, default a space.
+    end:   string appended after the last value, default a newline.
+    flush: whether to forcibly flush the stream.
+Copiar código
+dir()
+Por fim, a função dir() é usada para exibir uma lista de atributos e métodos associados a um elemento. Por exemplo, vamos descobrir todos os atributos em métodos de uma lista:
+
+lista = [1,2,3]
+dir(lista)
+Copiar código
+Saída: ['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']

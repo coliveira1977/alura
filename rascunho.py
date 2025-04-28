@@ -1,10 +1,5 @@
-frase = input("Digite uma frase: ")
+alturas = [1.70, 1.80, 1.65, 1.75, 1.90]
+pesos = [65, 80, 58, 70, 95]
 
-# Tratando a frase para remover pontuações
-frase_tratada = frase.replace(",", " ").replace(".", " ").replace("!", " ").replace("?", " ")
-
-# Filtrando palavras com tamanho maior ou igual a 5
-palavras_filtradas = list(filter(lambda palavra: len(palavra) >= 5, frase_tratada.split()))
-
-# Exibindo o resultado
-print(f"Palavras com 5 ou mais caracteres: {palavras_filtradas}")
+imc = [round((peso / altura**2), 1) for altura, peso in zip(alturas, pesos)]
+print(imc)

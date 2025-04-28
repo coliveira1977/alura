@@ -1,0 +1,116 @@
+02
+Para saber mais: tipos de exceções
+ Próxima Atividade
+
+No Python existem basicamente duas formas distintas de erros: os de sintaxe e as exceções. As exceções são uma forma de lidar com erros e situações inesperadas no código, garantindo um fluxo de execução mais controlado.
+
+Como uma pessoa cientista de dados, você precisará ter atenção a situações como esta para evitar bugs ou problemas em seus códigos e análises que possam afetar a experiência tanto da pessoa usuária quanto a eficiência da sua análise.
+
+Como aparece uma exceção no Python:
+Uma exceção aparece em nossa saída, como podemos notar na imagem abaixo:
+
+alt text: Print de uma exceção do Python no Google Colab. Temos um retângulo vermelho destacando o nome IndexError e uma seta vermelha indicando um tipo de Exceção. Abaixo temos um retângulo azul destacando a linha 2 e uma seta azul indicando que é a linha que lançou a Exceção. Por fim, temos um retângulo verde destacando a frase "list index out of range" e uma seta verde indicando que esta frase é a descrição da Exceção.
+
+Temos o tipo da exceção, seguido dos rastros que chamaram a exceção até a linha exata que lançou a exceção lista[4]. Logo abaixo, temos novamente o tipo da exceção e uma breve descrição sobre ela. Vamos agora observar alguns dos tipos mais comuns de exceções que podem ser lançadas no Python.
+
+Tipos de Exceções
+
+SyntaxError
+Ocorre quando é detectado pelo parser (analisador) um erro na descrição do código. Normalmente uma seta aponta para a parte do código que gerou o erro, como uma espécie de dica onde o erro possa ter ocorrido.
+
+print(10 / 2
+Copiar código
+Saída:
+
+  File "<ipython-input-16-2db3afa07d68>", line 1
+    print(10/2
+              ^
+SyntaxError: unexpected EOF while parsing
+Copiar código
+Note que esquecemos de fechar o parênteses e por isso foi apresentado um erro de sintaxe, ou seja, de escrita de código.
+
+NameError
+Exceção lançada quando tentamos utilizar um nome de algum elemento que não está presente em nosso código.
+
+raiz = sqrt(100)
+Copiar código
+Saída:
+
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-17-2e14e900fb9f> in <module>
+----> 1 raiz = sqrt(100)
+
+NameError: name 'sqrt' is not defined
+Copiar código
+Neste caso, o interpretador não consegue aplicar o método da raiz quadrada por não ter sido importado junto a biblioteca math.
+
+IndexError
+Exceção lançada quando tentamos indexar alguma estrutura de dados como lista, tupla ou até string além de seus limites.
+
+lista = [1, 2, 3]
+lista[4]
+Copiar código
+Saída:
+
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-18-f5fe6d922eea> in <module>
+      1 lista = [1, 2, 3]
+----> 2 lista[4]
+
+IndexError: list index out of range
+Copiar código
+Para esta situação, temos apenas 3 elementos na lista e tentamos ler o elemento da posição 4, que não existe. Recebendo a mensagem de que o index está fora da faixa.
+
+TypeError
+Exceção lançada quando um operador ou função são aplicados a um objeto cujo tipo é inapropriado.
+
+"1" + 1
+Copiar código
+Saída:
+
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-20-ec358fc6499a> in <module>
+----> 1 "1" + 1
+
+TypeError: can only concatenate str (not "int") to str
+Copiar código
+Note que tentamos “somar” uma string com um número inteiro e isso gerou uma exceção em nosso código. Isso ocorreu por 2 razões: o operador de soma foi considerado de concatenação por iniciarmos utilizando uma string (nesse caso, o sinal de adição serve para concatenar strings) e um valor do tipo inteiro não consegue ser concatenado nesse tipo de operação.
+
+KeyError
+Exceção lançada quando tentamos acessar uma chave que não está no dicionário presente em nosso código.
+
+estados = {'Bahia': 1, 'São Paulo': 2, 'Goiás': 3}
+estados["Amazonas"]
+Copiar código
+Saída:
+
+---------------------------------------------------------------------------
+KeyError                                  Traceback (most recent call last)
+<ipython-input-22-45729db26889> in <module>
+      1 estados = {'Bahia': 1, 'São Paulo': 2, 'Goiás': 3}
+----> 2 estados["Amazonas"]
+
+KeyError: 'Amazonas'
+Copiar código
+Tentamos acessar os dados do Estado Amazonas que não está presente no dicionário, lançando assim a exceção.
+
+Warning
+Exceção lançada em situações que precisamos alertar à pessoa usuária sobre algumas condições do código. Essas condições não necessariamente interrompem a execução do programa, mas podem lançar avisos sobre uso de módulos obsoletos, ou que possam ser depreciados em atualizações futuras ou também para alterações que podem reverberar sobre alguma parte do código.
+
+Lembrando que, no caso dos Warnings eles podem ser ignorados ou tratados como exceções.
+
+import numpy as np
+
+a = np.arange(5)
+a / a  # apresenta um warning
+Copiar código
+Saída:
+
+<ipython-input-23-93a37b275923>:4: RuntimeWarning: invalid value encountered in true_divide
+  a / a  # apresenta um warning
+array([nan,  1.,  1.,  1.,  1.])
+Copiar código
+Tentamos fazer a divisão de zero por zero. Em um array Numpy, que é essa estrutura na saída do console, esse resultado gera um valor nan (Not a Number). Ou seja, você consegue seguir a execução do programa, mas é provável que precise tratar os dados para poder utilizar esse array em alguma operação mais a frente.
